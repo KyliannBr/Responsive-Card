@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+:root {
+    --bgcolor: #0f0f13;
+    --text-color: #ffffff;
+    --bg-text-transparent: #0000006c;
+}
+
+@font-face {
+    font-family: ScriptStyle;
+    src: url(StyleScript-Regular.ttf);
+}
+
+body {
+    background-color: var(--bgcolor);
+}
+
+div.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    height: 100vh;
+}
+
+div.wrapper div.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.card {
+    transition: all 2s;
+    position: relative;
+    height: 400px;
+    width: 300px;
+    background-position: top;
+    background-size: 250%;
+    aspect-ratio: 16/9;
+    border-radius: 20px;
+    z-index: 1;
+    margin: 20px;
+}
+
+div.card::before {
+    content: '';
+    width: 100%;
+    height: 20%;
+    top: 80%;
+    left: 0;
+    position: absolute;
+    background-color: transparent;
+    border-radius: 0 0 20px 20px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+div.card::after {
+    content: '';
+    width: 100%;
+    height: 400px;
+    top: 100%;
+    left: 0;
+    position: absolute;
+    background-color: var(--bgcolor);
+    z-index: 4;
+}
+
+/* -------- NTH Child for each cards ------ */
+
+div.container:nth-child(1) div.card {
+    background-image: url(https://picsum.photos/400/600?random=1), url(https://picsum.photos/400/600?random=1);
+}
+
+div.container:nth-child(2) div.card {
+    background-image: url(https://picsum.photos/400/600?random=2), url(https://picsum.photos/400/600?random=2);
+}
+
+div.container:nth-child(3) div.card {
+    background-image: url(https://picsum.photos/400/600?random=3), url(https://picsum.photos/400/600?random=3);
+}
+
+div.container:nth-child(4) div.card {
+    background-image: url(https://picsum.photos/400/600?random=4), url(https://picsum.photos/400/600?random=4);
+}
+
+div.container:nth-child(5) div.card {
+    background-image: url(https://picsum.photos/400/600?random=5), url(https://picsum.photos/400/600?random=5);
+}
+
+div.container:nth-child(6) div.card {
+    background-image: url(https://picsum.photos/400/600?random=6), url(https://picsum.photos/400/600?random=6);
+}
+
+div.card p.titre {
+    transition: all 2s;
+    position: relative;
+    text-align: center;
+    font-size: medium;
+    font-size: 1.5rem;
+    margin-top: -30%;
+}
+
+div.card div.content {
+    z-index: 3;
+    transition: all 2s;
+    position: relative;
+    top: 80%;
+    color: var(--text-color);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 400px;
+}
+
+div.card div.content p.titre {
+    margin-bottom: 20px;
+}
+
+div.card div.content p.contenu {
+    padding: 0 5%;
+    text-align: justify;
+}
+
+div.card:hover {
+    transition: all 2s;
+    background-position: center bottom;
+    background-blend-mode: hue;
+}
+
+div.card:hover > div.content {
+    top: 0%;
+    background-color: var(--bg-text-transparent);
+    height: 400px;
+    width: 100%;
+}
+
+
+@media screen and (max-width: 1024px) {
+    div.wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
